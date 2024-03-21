@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 body {
-    @apply bg-zinc-900 h-full overflow-x-hidden;
+    @apply bg-zinc-900 h-full w-full overflow-x-hidden flex items-center justify-center;
 }
 
 #__next {
-    @apply h-full;
+    @apply h-full w-full flex items-center justify-center;
 }
 
 html {
-    @apply h-full;
+    @apply h-full w-full flex items-center justify-center;
+}
+
+
+input {
+    font-family: 'REM','serif';
 }
