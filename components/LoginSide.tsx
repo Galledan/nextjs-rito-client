@@ -43,25 +43,25 @@ const LoginSide = () => {
   const register = useCallback(async () => {
     try {
       await axios.post('/api/register', {
-        name,email,password
+        name, email, password
       })
     } catch (error) {
       console.log(error);
-      
+
     }
-  },[name,email,password])
+  }, [name, email, password])
 
   return (
     <div className='w-1/4 h-full bg-white'>
-      <div className='flex flex-col'>
-        <div className='w-full mt-12 flex flex-col items-center justify-center gap-14'>
+      <div className=' w-full h-full flex flex-col'>
+        <div className='w-full h-full mt-12 flex flex-col items-center justify-center gap-14'>
           <Image src="/images/logo.jpg" alt='logo' height={75} width={120} />
           <div className='w-full flex flex-col items-center justify-center gap-5'>
             <h1 className='text-2xl font-REM font-semibold '>{variant === 'login' ? 'Giriş yap' : 'Kayıt ol'}</h1>
             <div className='w-full flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
                 <Input id={name} type='text' onChange={(e: any) => setName(e.target.value)} value={name} label='KULLANICI ADI' />
-                {variant === 'register' && <Input id={email} type='email' onChange={(e: any) => setEmail(e.target.value)} value={email} label='EMAİL' /> }
+                {variant === 'register' && <Input id={email} type='email' onChange={(e: any) => setEmail(e.target.value)} value={email} label='EMAİL' />}
                 <Input id={password} type='password' onChange={(e: any) => setPassword(e.target.value)} value={password} label='ŞİFRE' />
               </div>
               <div className="flex flex-row items-center gap-4 mt-2 justify-center">
@@ -80,21 +80,22 @@ const LoginSide = () => {
               </div>
             </div>
           </div>
-          <div className='mt-36'>
+          <div className='flex flex-col items-center justify-between h-full w-full'>
             <button
               onClick={variant === 'login' ? login : register}
               disabled={name === '' || password === '' ? true : false}
-              className={`rounded-2xl px-5 py-5 ${name === '' || password === '' ? 'bg-zinc-100' : 'bg-red-500'}`}>
+              className={`mt-10 rounded-2xl px-5 py-5 ${name === '' || password === '' ? 'bg-zinc-100' : 'bg-red-500'}`}>
               <AiOutlineArrowRight size={30} className={`${name === '' || password === '' ? 'text-zinc-300' : 'text-white'}`} />
             </button>
-          </div>
-          <div className='mt-10 w-full flex flex-col gap-2'>
-            <div className='ml-16 flex flex-row gap-8 justify-center' >
-              <p className='font-REM font-bold cursor-pointer hover:text-zinc-900 text-zinc-600 text-[10px]'>GİRİŞ YAPAMIYOR MUSUN?</p>
-              <span className='font-REM font-bold cursor-pointer hover:text-zinc-900 text-zinc-400 text-[10px]'>v82.0.2</span>
+            <div className='mb-5 w-full flex flex-col gap-2'>
+              <div className='ml-16 flex flex-row gap-8 justify-center' >
+                <p className='font-REM font-bold cursor-pointer hover:text-zinc-900 text-zinc-600 text-[10px]'>GİRİŞ YAPAMIYOR MUSUN?</p>
+                <span className='font-REM font-bold cursor-pointer hover:text-zinc-900 text-zinc-400 text-[10px]'>v82.0.2</span>
+              </div>
+              <p className='mx-8 text-center font-REM font-bold text-zinc-400 text-[10px]'>BU UYGULAMA HPCAPTCHA İLE KORUNUR VE ONUN GİZLİLİK POLİTİKASI VE HİZMET ŞARTLARI GEÇERLİDİR.</p>
             </div>
-            <p className='mx-8 text-center font-REM font-bold text-zinc-400 text-[10px]'>BU UYGULAMA HPCAPTCHA İLE KORUNUR VE ONUN GİZLİLİK POLİTİKASI VE HİZMET ŞARTLARI GEÇERLİDİR.</p>
           </div>
+
         </div>
       </div>
     </div>
