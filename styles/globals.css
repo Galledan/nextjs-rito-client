@@ -6,7 +6,7 @@
 
 
 body {
-    @apply bg-zinc-900 h-full w-full overflow-x-hidden flex items-center justify-center;
+    @apply bg-[url('https://images2.alphacoders.com/941/941898.jpg')] bg-cover h-full w-full overflow-x-hidden flex items-center justify-center;
 }
 
 #__next {

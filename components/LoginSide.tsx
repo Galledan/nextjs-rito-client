@@ -55,8 +55,8 @@ const LoginSide = () => {
     <div className='w-1/4 h-full bg-white'>
       <div className=' w-full h-full flex flex-col'>
         <div className='w-full h-full mt-12 flex flex-col items-center justify-center gap-14'>
-          <Image src="/images/logo.jpg" alt='logo' height={75} width={120} />
-          <div className='w-full flex flex-col items-center justify-center gap-5'>
+          <Image src="/images/logo.png" alt='logo' height={75} width={120} />
+          <div className='w-full min-h-[360px] flex flex-col items-center justify-center gap-5'>
             <h1 className='text-2xl font-REM font-semibold '>{variant === 'login' ? 'Giriş yap' : 'Kayıt ol'}</h1>
             <div className='w-full flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
