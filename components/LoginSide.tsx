@@ -4,11 +4,18 @@ import Input from './Input'
 import { FcGoogle } from 'react-icons/fc'
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import axios from 'axios'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
+
 
 const LoginSide = () => {
 
-  const [username, setUsername] = useState('')
+  const router = useRouter()
+
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
 
 
   const [variant, setVariant] = useState('login');
@@ -16,6 +23,33 @@ const LoginSide = () => {
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login');
   }, []);
+
+  const login = useCallback(async () => {
+    try {
+      await signIn('credentials', {
+        name,
+        password,
+        redirect: false,
+        callbackUrl: '/'
+      });
+
+      router.push('/');
+    } catch (error) {
+      console.log(error);
+    }
+  }, [name, password, router]);
+
+
+  const register = useCallback(async () => {
+    try {
+      await axios.post('/api/register', {
+        name,email,password
+      })
+    } catch (error) {
+      console.log(error);
+      
+    }
+  },[name,email,password])
 
   return (
     <div className='w-1/4 h-full bg-white'>
@@ -26,7 +60,8 @@ const LoginSide = () => {
             <h1 className='text-2xl font-REM font-semibold '>{variant === 'login' ? 'Giriş yap' : 'Kayıt ol'}</h1>
             <div className='w-full flex flex-col gap-4'>
               <div className='flex flex-col gap-2'>
-                <Input id={username} type='text' onChange={(e: any) => setUsername(e.target.value)} value={username} label='KULLANICI ADI' />
+                <Input id={name} type='text' onChange={(e: any) => setName(e.target.value)} value={name} label='KULLANICI ADI' />
+                {variant === 'register' && <Input id={email} type='email' onChange={(e: any) => setEmail(e.target.value)} value={email} label='EMAİL' /> }
                 <Input id={password} type='password' onChange={(e: any) => setPassword(e.target.value)} value={password} label='ŞİFRE' />
               </div>
               <div className="flex flex-row items-center gap-4 mt-2 justify-center">
@@ -47,9 +82,10 @@ const LoginSide = () => {
           </div>
           <div className='mt-36'>
             <button
-              disabled={username === '' || password === '' ? true : false}
-              className={`rounded-2xl px-5 py-5 ${username === '' || password === '' ? 'bg-zinc-100' : 'bg-red-600'} bg-slate-100`}>
-              <AiOutlineArrowRight size={30} className={`${username === '' || password === '' ? 'text-zinc-300' : 'text-white'}`} />
+              onClick={variant === 'login' ? login : register}
+              disabled={name === '' || password === '' ? true : false}
+              className={`rounded-2xl px-5 py-5 ${name === '' || password === '' ? 'bg-zinc-100' : 'bg-red-500'}`}>
+              <AiOutlineArrowRight size={30} className={`${name === '' || password === '' ? 'text-zinc-300' : 'text-white'}`} />
             </button>
           </div>
           <div className='mt-10 w-full flex flex-col gap-2'>
