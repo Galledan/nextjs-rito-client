@@ -49,6 +49,7 @@ model Account {
 model Game {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
+  bigLogo String
   logo String
   descTitle String
   descShort String

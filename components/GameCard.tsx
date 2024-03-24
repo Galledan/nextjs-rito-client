@@ -13,7 +13,7 @@ const GameCard: React.FC<GameCardProps> = ({ data }) => {
     const router = useRouter()
 
     return (
-        <div className='flex flex-col gap-4 '>
+        <div onClick={() => router.push(`/game/${data?.id}`)} className='flex flex-col gap-4 '>
             <img className=' 
         cursor-pointer
         object-cover

@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import { FaUser } from 'react-icons/fa'
 import { HiMiniSquares2X2 } from 'react-icons/hi2'
 import AccountMenu from './AccountMenu'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
 
+    const router = useRouter()
 
     const [showAccountMenu, setShowAccountMenu] = useState(false)
 
@@ -15,7 +17,7 @@ const Navbar = () => {
 
   return (
     <>
-        <div className="absolute top-5 left-5 cursor-pointer h-10 px-3 py-3 rounded-lg bg-zinc-800 z-10">
+      <div onClick={() => router.push('/')} className="absolute top-5 left-5 cursor-pointer h-10 px-3 py-3 rounded-lg bg-zinc-800 z-10">
       <HiMiniSquares2X2 className="text-gray-300"/>
       </div>
       <div className="absolute top-5 left-[45%] z-10">

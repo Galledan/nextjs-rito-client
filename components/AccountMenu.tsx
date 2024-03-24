@@ -15,7 +15,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
         return null;
     }
     return (
-        <div className='flex flex-col gap-5 absolute top-20 px-3 py-3  right-5 bg-zinc-800 font-REM z-10'>
+        <div className='flex flex-col gap-5 absolute top-20 px-3 py-3 rounded-lg  right-5 bg-zinc-800 font-REM z-10'>
             <div>
                 <p className='text-lg text-center text-white'>{currentUser.name}</p>
             </div>

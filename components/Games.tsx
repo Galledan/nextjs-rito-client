@@ -13,7 +13,7 @@ const Games: React.FC<GamesProps> = ({ data, title,bg }) => {
 
 
     return (
-        <div className={`flex ${bg} min-h-[800px] h-full`}>
+        <div className={`flex ${bg} pt-10 pb-20 h-full`}>
             <div className='flex flex-col justify-center pl-24 pt-16'>
                 <h1 className='text-3xl text-white font-REM font-semibold'>{title}</h1>
                 <div className='mt-5 flex flex-row flex-wrap w-full gap-8'>
