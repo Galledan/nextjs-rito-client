@@ -20,7 +20,7 @@ const Game = () => {
             <Navbar />
             <div className='absolute left-[8%] top-[15%] flex flex-col gap-5'>
                 <Image src={`/images/${data?.bigLogo}`} alt={data?.title} height={100} width={300}/>
-                <GameButton label='Yükle'/>
+                <GameButton gameId={gameId as string}/>
             </div>
             
         </div>
