@@ -54,7 +54,7 @@ model Game {
   descTitle String
   descShort String
   thumbnailUrl String
-  videoUrl String
+  bigBg String?
   platforms String[]
   website String
   developer String

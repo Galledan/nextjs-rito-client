@@ -33,9 +33,9 @@ export default function Home() {
   
   return (
    <div className="w-4/5 min-w-[800px] h-[865px] bg-black flex flex-col relative overflow-y-scroll">
-      <Navbar />
-      <Games title='Oyunlarım' data={downloadedGames} bg="bg-zinc-900"/>
-      <Games title="Tüm Oyunlar" data={games} bg="bg-black"/>
+      <Navbar showLogo />
+      <Games biggerSize={false} title='Oyunlarım' data={downloadedGames} bg="bg-zinc-900"/>
+      <Games biggerSize title="Tüm Oyunlar" data={games} bg="bg-black"/>
    </div>
   );
 }
